@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>SCOTT'S PERSONAL HOMEPAGE</title>
+    <meta name="theme-color" content="rgb(255,255,255)">
+  </head>
+  <body style="font-family:Comic Sans MS, Marker Felt;background:pink;padding:20px">
+    <center>
+      <h1>Welcome to my homepage :-)</h1>
+      <blink>Hi this is my homepage on the world wide web!</blink>
+      <img width="300px" src="https://i.pinimg.com/originals/96/d2/29/96d229d8c1be97c0d8c297b16a65ae0d.gif">
+      
+      <br>
+      
+      <hr>
+
+      <br>
+      <br>
+
+      <img width="400px" src="https://media1.giphy.com/media/3o6fJ3xFENBRxVFvUc/giphy.gif"> &nbsp; <br><br><br><br>
+
+      <hr>
+      
+      <br>
+
+      <blink style="visibility: visible;">
+        Best viewed in Internet Explorer 5 or above
+      </blink>
+
+      <br>  
+      
+      <img width="50px" src="https://i.gifer.com/origin/da/da50012393097357b246e441f88b2041_w200.gif">
+
+      <br>
+      <br>
+
+      <hr>
+
+      <br>
+
+      <img width="200px" src="https://imgix.gizmodo.com.au/content/uploads/sites/2/2019/09/19/co3zbclkzp9rfmwfjddn.gif?auto=format&fit=fill&q=65&w=720&nrs=40&fm=gif">
+      
+      <br>
+
+      <h2>
+        Thanks for stopping by!
+      </h2>
+      <h2>
+        Leave a message on <a href="https://twitter.com/scottinallcaps" target="_blank">my guest book</a>
+      </h2>
+
+      <br><br><br>
+    </center>
+
+  </body>
+  <script>
+    const sleep = ms => new Promise(res => setTimeout(res, ms));
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const metaThemeColor = document.getElementsByTagName('meta')[0];
+      const blinkTags = document.getElementsByTagName('blink');
+
+      (async () => {
+        for (;;) {
+          const r = Math.random() * 255;
+          const g = Math.random() * 255;
+          const b = Math.random() * 255;
+          metaThemeColor.setAttribute('content', `rgb(${r}, ${g}, ${b})`);
+          await sleep(200);
+        }
+      })();
+
+        for (const tag of blinkTags) {
+          (async () => {
+            for (;;) {
+              tag.style.visibility = 'visible';
+              await sleep(1000);
+              tag.style.visibility = 'hidden';
+              await sleep(1000);
+            }
+          })();
+        }
+    });
+  </script>
+</html>
