@@ -69,30 +69,26 @@
   <script>
     const sleep = ms => new Promise(res => setTimeout(res, ms));
 
+    async function blink(tag) {
+      tag.style.visibility = 'visible';
+      await sleep(1000);
+      tag.style.visibility = 'hidden';
+      await sleep(1000);
+      blink(tag);
+    }
+    
     document.addEventListener('DOMContentLoaded', () => {
       const metaThemeColor = document.getElementsByTagName('meta')[0];
       const blinkTags = document.getElementsByTagName('blink');
 
-      (async () => {
-        for (;;) {
-          const r = Math.random() * 255;
-          const g = Math.random() * 255;
-          const b = Math.random() * 255;
-          metaThemeColor.setAttribute('content', `rgb(${r}, ${g}, ${b})`);
-          await sleep(200);
-        }
-      })();
+      setInterval(() => {
+        const r = Math.random() * 255;
+        const g = Math.random() * 255;
+        const b = Math.random() * 255;
+        metaThemeColor.setAttribute('content', `rgb(${r}, ${g}, ${b})`);
+      }, 200);
 
-      for (const tag of blinkTags) {
-        (async () => {
-          for (;;) {
-            tag.style.visibility = 'visible';
-            await sleep(1000);
-            tag.style.visibility = 'hidden';
-            await sleep(1000);
-          }
-        })();
-      }
+      Array.from(blinkTags).forEach(blink);
     });
   </script>
 </html>
