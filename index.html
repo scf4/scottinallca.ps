@@ -83,16 +83,16 @@
         }
       })();
 
-        for (const tag of blinkTags) {
-          (async () => {
-            for (;;) {
-              tag.style.visibility = 'visible';
-              await sleep(1000);
-              tag.style.visibility = 'hidden';
-              await sleep(1000);
-            }
-          })();
-        }
+      for (const tag of blinkTags) {
+        (async () => {
+          for (;;) {
+            tag.style.visibility = 'visible';
+            await sleep(1000);
+            tag.style.visibility = 'hidden';
+            await sleep(1000);
+          }
+        })();
+      }
     });
   </script>
 </html>
